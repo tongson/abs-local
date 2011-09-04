@@ -1,0 +1,53 @@
+pkgname=busybox
+pkgver=1.19.0
+pkgrel=1
+pkgdesc="Utilities for rescue and embedded systems"
+arch=("i686" "x86_64")
+url="http://busybox.net"
+license=('GPL')
+makedepends=("make" "gcc" "sed" "ncurses")
+source=($url/downloads/$pkgname-$pkgver.tar.bz2
+	config
+        busybox-1.19.0-bb.patch
+        busybox-1.19.0-cttyhack.patch
+        busybox-1.19.0-less.patch
+        busybox-1.19.0-sed.patch
+        busybox-1.19.0-swap.patch
+        busybox-1.19.0-uncompress.patch)
+md5sums=('9ad0b619bb788913b263eb53bbd659be'
+         '30e55c7fde363e6900b0aed0d01a08d8'
+         'f65b23c0da7d3808911a71a77b861db0'
+         '4d64393857732f513c40172757fff7c2'
+         '67c0c719ddb768ee6bbdcf4c3bed45ca'
+         '89f9693f0b76b6012b74d73bb772dcc7'
+         '21b13f7cfe133acd24f370b7c855668a'
+         'bc3dfa612864cc54bc6e58b31e775186')
+
+build() {
+  cd "$srcdir/$pkgname-$pkgver"
+  cp $srcdir/config .config
+  patch -Np1 -i $srcdir/$pkgname-$pkgver-bb.patch
+  patch -Np1 -i $srcdir/$pkgname-$pkgver-cttyhack.patch
+  patch -Np1 -i $srcdir/$pkgname-$pkgver-less.patch
+  patch -Np1 -i $srcdir/$pkgname-$pkgver-sed.patch
+  patch -Np1 -i $srcdir/$pkgname-$pkgver-swap.patch
+  patch -Np1 -i $srcdir/$pkgname-$pkgver-uncompress.patch
+  sed -i -r \
+    -e 's:[[:space:]]?-(Werror|Os|falign-(functions|jumps|loops|labels)=1|fomit-frame-pointer)\>::g' \
+    Makefile.flags || exit 1
+  sed -i '/^#error Aborting compilation./d' applets/applets.c || exit 1
+  sed -i 's:-Wl,--gc-sections::' Makefile
+  make
+  mkdir _install
+  make DESTDIR="_install" install || exit 1
+  rm _install/bin/busybox
+  tar cf busybox-links.tar -C _install .
+}
+
+package() {
+  cd "$srcdir/$pkgname-$pkgver"
+  mkdir $pkgdir/bin
+  mkdir -p $pkgdir/usr/share/busybox
+  install -m755 busybox $pkgdir/bin/
+  install -m644 busybox-links.tar $pkgdir/usr/share/busybox
+}
