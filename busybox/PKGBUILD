@@ -15,7 +15,7 @@ source=($url/downloads/$pkgname-$pkgver.tar.bz2
         busybox-1.19.0-swap.patch
         busybox-1.19.0-uncompress.patch)
 sha256sums=('19cf44a096d7796800780d6344c4cc5054dac9f50d1c9b7a5c506c4777f7620c'
-         '48b6e87e62ff91e3ddc85aedee50552eda9e1cbfc6da3a1cdec6560a09b0e0bb'
+         '1d780763e67bfe9e1edd8a1cfcc5e8e864be27a670fe7dfd6ea6f246ed6c741f'
          '98f92c2edbcf61d1bacef783ea8b08cce07051b0a4489ed3f4579296846f89f1'
          'f315e48a9c586fb5e77921eda59c773ba8afbb1e4ac9fd422c66b5c482dca6d2'
          'e0d1a306bf3be7802ef19c0033b278ae2ecf8fd4f271bad7d93209c9c6a0f019'
