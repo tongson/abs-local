@@ -41,16 +41,10 @@ build() {
   sed -i '/^#error Aborting compilation./d' applets/applets.c || exit 1
   sed -i 's:-Wl,--gc-sections::' Makefile
   make
-  mkdir _install
-  make DESTDIR="_install" install || exit 1
-  rm _install/bin/busybox
-  tar cf busybox-links.tar -C _install .
 }
 
 package() {
   cd "$srcdir/$pkgname-$pkgver"
   mkdir $pkgdir/bin
-  mkdir -p $pkgdir/usr/share/busybox
   install -m755 busybox $pkgdir/bin/
-  install -m644 busybox-links.tar $pkgdir/usr/share/busybox
 }
