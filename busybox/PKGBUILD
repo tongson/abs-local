@@ -47,4 +47,6 @@ package() {
   cd "$srcdir/$pkgname-$pkgver"
   mkdir $pkgdir/bin
   install -m755 busybox $pkgdir/bin/
+  install -o 0 -g 16 -m0750 -d $pkgdir/var/spool/cron
+  install -o 0 -g 409 -m1730 $pkgdir/var/spool/cron/crontabs
 }
