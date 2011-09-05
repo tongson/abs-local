@@ -14,15 +14,14 @@ source=($url/downloads/$pkgname-$pkgver.tar.bz2
         busybox-1.19.0-sed.patch
         busybox-1.19.0-swap.patch
         busybox-1.19.0-uncompress.patch)
-md5sums=('9ad0b619bb788913b263eb53bbd659be'
-         '30e55c7fde363e6900b0aed0d01a08d8'
-         'f65b23c0da7d3808911a71a77b861db0'
-         '4d64393857732f513c40172757fff7c2'
-         '67c0c719ddb768ee6bbdcf4c3bed45ca'
-         '89f9693f0b76b6012b74d73bb772dcc7'
-         '21b13f7cfe133acd24f370b7c855668a'
-         'bc3dfa612864cc54bc6e58b31e775186')
-
+sha256sums=('19cf44a096d7796800780d6344c4cc5054dac9f50d1c9b7a5c506c4777f7620c'
+         '48b6e87e62ff91e3ddc85aedee50552eda9e1cbfc6da3a1cdec6560a09b0e0bb'
+         '98f92c2edbcf61d1bacef783ea8b08cce07051b0a4489ed3f4579296846f89f1'
+         'f315e48a9c586fb5e77921eda59c773ba8afbb1e4ac9fd422c66b5c482dca6d2'
+         'e0d1a306bf3be7802ef19c0033b278ae2ecf8fd4f271bad7d93209c9c6a0f019'
+         'b21ac5eb86519fbcbe0a74fc531cb707a878e988b6fdb298be6083760e04fb89'
+         'd9d70a607d877646b4e2087ddf4c3ad14d5bcb2b5973b33fed30ee8e6d69b40d'
+         '74cd12b54d47a2ce0e418d8d15cd0be1649bbec5951d9000b5275683f9b0623d')
 build() {
   cd "$srcdir/$pkgname-$pkgver"
   cp $srcdir/config .config
