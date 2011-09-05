@@ -26,6 +26,7 @@ md5sums=('9ad0b619bb788913b263eb53bbd659be'
 build() {
   cd "$srcdir/$pkgname-$pkgver"
   cp $srcdir/config .config
+  # Mostly from Gentoo
   patch -Np1 -i $srcdir/$pkgname-$pkgver-bb.patch
   patch -Np1 -i $srcdir/$pkgname-$pkgver-cttyhack.patch
   patch -Np1 -i $srcdir/$pkgname-$pkgver-less.patch
