@@ -7,7 +7,8 @@ url="http://busybox.net"
 license=('GPL')
 makedepends=("make" "gcc")
 conflicts=('cron')
-provides=('cron')
+provides=('less' 'wget' 'sed' 'diffutils' 'findutils' 'awk' 'bzip2' 'gzip' 'unzip' 'tar' 'which'
+          'run-parts' 'patch' 'vi' 'grep' 'procps' 'cpio' 'cron' 'eject' 'runit')
 groups=('base')
 install='busybox.install'
 source=($url/downloads/$pkgname-$pkgver.tar.bz2
@@ -28,6 +29,53 @@ sha256sums=('19cf44a096d7796800780d6344c4cc5054dac9f50d1c9b7a5c506c4777f7620c'
         'd9d70a607d877646b4e2087ddf4c3ad14d5bcb2b5973b33fed30ee8e6d69b40d'
         '74cd12b54d47a2ce0e418d8d15cd0be1649bbec5951d9000b5275683f9b0623d'
         'a70d24036a7ae14f213147fe6727fee4320b2090bc59d8a4ffa609d8fdd14cef')
+symlinks=(/bin/less
+  /bin/cpio
+  /usr/bin/run-parts
+  /usr/bin/crontab
+  /usr/sbin/crond
+  /usr/bin/eject
+  /usr/bin/volname
+  /usr/bin/chpst
+  /usr/bin/runsv
+  /usr/bin/runsvdir
+  /usr/bin/sv
+  /usr/bin/svlogd
+  /usr/bin/setuidgid
+  /usr/bin/envuidgid
+  /usr/bin/envdir
+  /usr/bin/softlimit
+  /usr/bin/wget
+  /bin/sed
+  /usr/bin/diff
+  /usr/bin/cmp
+  /usr/bin/find
+  /usr/bin/xargs
+  /bin/awk
+  /usr/bin/awk
+  /bin/bunzip2
+  /bin/bzip2
+  /bin/gunzip
+  /bin/uncompress
+  /bin/gzip
+  /usr/bin/unzip
+  /bin/tar
+  /usr/bin/which
+  /usr/bin/patch
+  /bin/vi
+  /bin/grep
+  /bin/kill
+  /bin/ps
+  /sbin/sysctl
+  /usr/bin/free
+  /usr/bin/pgrep
+  /usr/bin/pkill
+  /usr/bin/pmap
+  /usr/bin/pwdx
+  /usr/bin/top
+  /usr/bin/uptime
+  /usr/bin/watch)
+
 build() {
   cd "$srcdir/$pkgname-$pkgver"
   cp $srcdir/config .config
@@ -54,4 +102,8 @@ package() {
   install -m755 busybox $pkgdir/bin/
   install -o 0 -g 16 -m0750 -d $pkgdir/var/spool/cron
   install -o 0 -g 409 -m1730 $pkgdir/var/spool/cron/crontabs
+  for x in $(seq 0 $((${#symlinks[@]} - 1))); do
+    ln -sf /bin/busybox $pkgdir/${symlinks[$x]}
+  done
 }
+
