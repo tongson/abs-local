@@ -25,7 +25,7 @@ sha256sums=('19cf44a096d7796800780d6344c4cc5054dac9f50d1c9b7a5c506c4777f7620c'
 build() {
   cd "$srcdir/$pkgname-$pkgver"
   cp $srcdir/config .config
-  # Mostly from Gentoo
+  # from Gentoo
   patch -Np1 -i $srcdir/$pkgname-$pkgver-bb.patch
   patch -Np1 -i $srcdir/$pkgname-$pkgver-cttyhack.patch
   patch -Np1 -i $srcdir/$pkgname-$pkgver-less.patch
