@@ -16,15 +16,17 @@ source=($url/downloads/$pkgname-$pkgver.tar.bz2
         busybox-1.19.0-less.patch
         busybox-1.19.0-sed.patch
         busybox-1.19.0-swap.patch
-        busybox-1.19.0-uncompress.patch)
+        busybox-1.19.0-uncompress.patch
+        runsvdir-start)
 sha256sums=('19cf44a096d7796800780d6344c4cc5054dac9f50d1c9b7a5c506c4777f7620c'
-         'f0f2b7c9001cd4a5e9a0dce4c564914781ed5f298971c80e4cf08681392b6fdc'
-         '98f92c2edbcf61d1bacef783ea8b08cce07051b0a4489ed3f4579296846f89f1'
-         'f315e48a9c586fb5e77921eda59c773ba8afbb1e4ac9fd422c66b5c482dca6d2'
-         'e0d1a306bf3be7802ef19c0033b278ae2ecf8fd4f271bad7d93209c9c6a0f019'
-         'b21ac5eb86519fbcbe0a74fc531cb707a878e988b6fdb298be6083760e04fb89'
-         'd9d70a607d877646b4e2087ddf4c3ad14d5bcb2b5973b33fed30ee8e6d69b40d'
-         '74cd12b54d47a2ce0e418d8d15cd0be1649bbec5951d9000b5275683f9b0623d')
+        'f0f2b7c9001cd4a5e9a0dce4c564914781ed5f298971c80e4cf08681392b6fdc'
+        '98f92c2edbcf61d1bacef783ea8b08cce07051b0a4489ed3f4579296846f89f1'
+        'f315e48a9c586fb5e77921eda59c773ba8afbb1e4ac9fd422c66b5c482dca6d2'
+        'e0d1a306bf3be7802ef19c0033b278ae2ecf8fd4f271bad7d93209c9c6a0f019'
+        'b21ac5eb86519fbcbe0a74fc531cb707a878e988b6fdb298be6083760e04fb89'
+        'd9d70a607d877646b4e2087ddf4c3ad14d5bcb2b5973b33fed30ee8e6d69b40d'
+        '74cd12b54d47a2ce0e418d8d15cd0be1649bbec5951d9000b5275683f9b0623d'
+        'a70d24036a7ae14f213147fe6727fee4320b2090bc59d8a4ffa609d8fdd14cef')
 build() {
   cd "$srcdir/$pkgname-$pkgver"
   cp $srcdir/config .config
@@ -44,6 +46,8 @@ build() {
 }
 
 package() {
+  cd $srcdir
+  install -m 755 ${srcdir}/runsvdir-start ${pkgdir}/sbin
   cd "$srcdir/$pkgname-$pkgver"
   mkdir $pkgdir/bin
   install -m755 busybox $pkgdir/bin/
