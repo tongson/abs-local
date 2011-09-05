@@ -9,6 +9,7 @@ makedepends=("make" "gcc")
 conflicts=('cron')
 provides=('cron')
 groups=('base')
+install='busybox.install'
 source=($url/downloads/$pkgname-$pkgver.tar.bz2
         config
         busybox-1.19.0-bb.patch
