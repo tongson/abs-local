@@ -95,15 +95,21 @@ build() {
 }
 
 package() {
-  cd $srcdir
-  install -m 755 ${srcdir}/runsvdir-start ${pkgdir}/sbin
+  cd "${srcdir}"
+  install -m0755 -d ${pkgdir}/sbin/
+  install -m0755 ${srcdir}/runsvdir-start ${pkgdir}/sbin
+
   cd "$srcdir/$pkgname-$pkgver"
-  mkdir $pkgdir/bin
-  install -m755 busybox $pkgdir/bin/
-  install -o 0 -g 16 -m0750 -d $pkgdir/var/spool/cron
-  install -o 0 -g 409 -m1730 $pkgdir/var/spool/cron/crontabs
+  install -m0755 -d ${pkgdir}/bin/
+  install -m0755 busybox $pkgdir/bin
+
+  install -m0755 -d ${pkgdir}/usr/bin
+  install -m0755 -d ${pkgdir}/usr/sbin
   for x in $(seq 0 $((${#symlinks[@]} - 1))); do
     ln -sf /bin/busybox $pkgdir/${symlinks[$x]}
   done
+
+  install -o 0 -g 16 -m0750 -d $pkgdir/var/spool/cron
+  install -o 0 -g 409 -m1730 -d $pkgdir/var/spool/cron/crontabs
 }
 
