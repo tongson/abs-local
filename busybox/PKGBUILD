@@ -5,9 +5,12 @@ pkgdesc="Utilities for rescue and embedded systems"
 arch=("i686" "x86_64")
 url="http://busybox.net"
 license=('GPL')
-makedepends=("make" "gcc" "sed" "ncurses")
+makedepends=("make" "gcc")
+conflicts=('cron')
+provides=('cron')
+groups=('base')
 source=($url/downloads/$pkgname-$pkgver.tar.bz2
-	config
+        config
         busybox-1.19.0-bb.patch
         busybox-1.19.0-cttyhack.patch
         busybox-1.19.0-less.patch
