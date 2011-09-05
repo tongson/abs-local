@@ -8,7 +8,7 @@ license=('GPL')
 makedepends=('make' 'gcc')
 conflicts=('cron')
 provides=('less' 'wget' 'sed' 'diffutils' 'findutils' 'awk' 'bzip2' 'gzip' 'unzip' 'tar' 'which'
-          'run-parts' 'patch' 'vi' 'grep' 'procps' 'cpio' 'cron' 'eject' 'runit' 'psmisc')
+          'run-parts' 'patch' 'vi' 'grep' 'procps' 'cpio' 'cron' 'eject' 'runit' 'psmisc' 'bridge-utils')
 groups=('base')
 install='busybox.install'
 source=(${url}/downloads/${pkgname}-${pkgver}.tar.bz2
@@ -77,7 +77,8 @@ symlinks=(/bin/less
   /usr/bin/watch
   /usr/bin/fuser
   /usr/bin/killall
-  /usr/bin/pstree)
+  /usr/bin/pstree
+  /usr/sbin/brctl)
 
 build() {
   cd "${srcdir}/${pkgname}-${pkgver}"
