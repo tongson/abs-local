@@ -5,7 +5,6 @@ pkgdesc='Utilities for rescue and embedded systems'
 arch=('i686' 'x86_64')
 url='http://busybox.net'
 license=('GPL')
-makedepends=('make' 'gcc')
 conflicts=('cron')
 provides=('less' 'wget' 'sed' 'diffutils' 'findutils' 'awk' 'bzip2' 'gzip' 'unzip' 'tar' 'which'
           'run-parts' 'patch' 'vi' 'grep' 'procps' 'cpio' 'cron' 'eject' 'runit' 'psmisc' 'bridge-utils')
