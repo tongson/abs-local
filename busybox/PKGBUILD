@@ -8,7 +8,7 @@ license=('GPL')
 conflicts=('cron')
 provides=('less' 'wget' 'sed' 'diffutils' 'findutils' 'awk' 'bzip2' 'gzip' 'unzip' 'tar' 'which'
           'run-parts' 'patch' 'vi' 'grep' 'procps' 'cpio' 'cron' 'eject' 'runit' 'psmisc' 'bridge-utils'
-          'iputils')
+          'iputils' 'net-tools')
 groups=('base')
 install='busybox.install'
 source=(${url}/downloads/${pkgname}-${pkgver}.tar.bz2
@@ -84,7 +84,14 @@ symlinks=(/bin/less
   /bin/traceroute
   /bin/traceroute6
   /usr/sbin/arping
-  /usr/sbin/tftpd)
+  /usr/sbin/tftpd
+  /bin/hostname
+  /bin/netstat
+  /sbin/arp
+  /sbin/ifconfig
+  /sbin/iptunnel
+  /sbin/nameif
+  /sbin/route)
 
 build() {
   cd "${srcdir}/${pkgname}-${pkgver}"
