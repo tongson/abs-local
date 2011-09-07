@@ -14,7 +14,7 @@ conflicts=('cron')
 install='busybox.install'
 source=(${url}/downloads/${pkgname}-${pkgver}.tar.bz2
         config
-        busybox-1.19.0-bb.patch
+        busybox-1.19.2-bb.patch
         runsvdir-start
         script)
 sha256sums=('ea7ec9b6df70b8c528f4a2b6300e9913431c7223308fb08dfafa7508d75a0cb9'
