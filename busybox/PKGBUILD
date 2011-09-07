@@ -8,7 +8,7 @@ license=('GPL')
 options=('emptydirs')
 provides=('less' 'wget' 'sed' 'diffutils' 'findutils' 'awk' 'bzip2' 'gzip' 'unzip' 'tar' 'which'
           'run-parts' 'patch' 'vi' 'grep' 'procps' 'cpio' 'cron' 'eject' 'runit' 'psmisc' 'bridge-utils'
-          'iputils' 'net-tools' 'inetutils' 'man-db' 'logger' 'ntp')
+          'iputils' 'net-tools' 'inetutils' 'man-db' 'logger' 'ntp' 'dhcpcd')
 groups=('base')
 conflicts=('cron')
 install='busybox.install'
@@ -89,7 +89,8 @@ symlinks=(/bin/less
   /sbin/syslogd
   /sbin/klogd
   /bin/logread
-  /usr/bin/ntp)
+  /usr/bin/ntp
+  /sbin/udhcpc)
 
 build() {
   cd "${srcdir}/${pkgname}-${pkgver}"
@@ -111,8 +112,8 @@ build() {
 
 package() {
   cd "${srcdir}"
-  install -m0755 -d ${pkgdir}/sbin/
-  install -m0755 ${srcdir}/runsvdir-start ${pkgdir}/sbin
+  install -D -m0755 ${srcdir}/runsvdir-start ${pkgdir}/sbin/runsvdir-start
+  install -D -m0755 ${srcdir}/script ${pkgdir}/usr/share/udhcpc/script
 
   cd "${srcdir}/${pkgname}-${pkgver}"
   install -m0755 -d ${pkgdir}/bin/
