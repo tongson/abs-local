@@ -100,11 +100,6 @@ build() {
   cp "${srcdir}/config" .config
   # from Gentoo
   patch -Np1 -i ${srcdir}/${pkgname}-${pkgver}-bb.patch
-  patch -Np1 -i ${srcdir}/${pkgname}-${pkgver}-cttyhack.patch
-  patch -Np1 -i ${srcdir}/${pkgname}-${pkgver}-less.patch
-  patch -Np1 -i ${srcdir}/${pkgname}-${pkgver}-sed.patch
-  patch -Np1 -i ${srcdir}/${pkgname}-${pkgver}-swap.patch
-  patch -Np1 -i ${srcdir}/${pkgname}-${pkgver}-uncompress.patch
   sed -i -r \
     -e 's:[[:space:]]?-(Werror|Os|falign-(functions|jumps|loops|labels)=1|fomit-frame-pointer)\>::g' \
     Makefile.flags || exit 1
