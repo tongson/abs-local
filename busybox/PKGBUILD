@@ -8,7 +8,7 @@ license=('GPL')
 conflicts=('cron')
 provides=('less' 'wget' 'sed' 'diffutils' 'findutils' 'awk' 'bzip2' 'gzip' 'unzip' 'tar' 'which'
           'run-parts' 'patch' 'vi' 'grep' 'procps' 'cpio' 'cron' 'eject' 'runit' 'psmisc' 'bridge-utils'
-          'iputils' 'net-tools' 'inetutils')
+          'iputils' 'net-tools' 'inetutils' 'man-db')
 groups=('base')
 install='busybox.install'
 source=(${url}/downloads/${pkgname}-${pkgver}.tar.bz2
@@ -95,7 +95,7 @@ symlinks=(/bin/less
   /usr/bin/telnet
   /usr/sbin/ftpd
   /usr/sbin/telnetd
-  )
+  /usr/bin/man)
 
 build() {
   cd "${srcdir}/${pkgname}-${pkgver}"
