@@ -8,7 +8,7 @@ license=('GPL')
 conflicts=('cron')
 provides=('less' 'wget' 'sed' 'diffutils' 'findutils' 'awk' 'bzip2' 'gzip' 'unzip' 'tar' 'which'
           'run-parts' 'patch' 'vi' 'grep' 'procps' 'cpio' 'cron' 'eject' 'runit' 'psmisc' 'bridge-utils'
-          'iputils' 'net-tools' 'inetutils' 'man-db' 'logger')
+          'iputils' 'net-tools' 'inetutils' 'man-db' 'logger' 'ntp')
 groups=('base')
 install='busybox.install'
 source=(${url}/downloads/${pkgname}-${pkgver}.tar.bz2
@@ -87,7 +87,8 @@ symlinks=(/bin/less
   /usr/bin/man
   /sbin/syslogd
   /sbin/klogd
-  /bin/logread)
+  /bin/logread
+  /usr/bin/ntp)
 
 build() {
   cd "${srcdir}/${pkgname}-${pkgver}"
