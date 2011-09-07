@@ -15,10 +15,12 @@ install='busybox.install'
 source=(${url}/downloads/${pkgname}-${pkgver}.tar.bz2
         config
         busybox-1.19.0-bb.patch
-        runsvdir-start)
+        runsvdir-start
+        script)
 sha256sums=('ea7ec9b6df70b8c528f4a2b6300e9913431c7223308fb08dfafa7508d75a0cb9'
         '4c484deafa62fa2ba636b8ce24cdbd18216883423bff59f410e1de8abe9c69df'
-        'a70d24036a7ae14f213147fe6727fee4320b2090bc59d8a4ffa609d8fdd14cef')
+        'a70d24036a7ae14f213147fe6727fee4320b2090bc59d8a4ffa609d8fdd14cef'
+        'd51e911242addaf594bae8c98b61e7711032b66b43455c87656518cb66d05ee6')
 symlinks=(/bin/less
   /bin/cpio
   /usr/bin/run-parts
