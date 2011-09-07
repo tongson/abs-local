@@ -1,5 +1,5 @@
 pkgname=busybox
-pkgver=1.19.0
+pkgver=1.19.2
 pkgrel=66
 pkgdesc='Utilities for rescue and embedded systems'
 arch=('i686' 'x86_64')
@@ -14,20 +14,9 @@ install='busybox.install'
 source=(${url}/downloads/${pkgname}-${pkgver}.tar.bz2
         config
         busybox-1.19.0-bb.patch
-        busybox-1.19.0-cttyhack.patch
-        busybox-1.19.0-less.patch
-        busybox-1.19.0-sed.patch
-        busybox-1.19.0-swap.patch
-        busybox-1.19.0-uncompress.patch
         runsvdir-start)
-sha256sums=('19cf44a096d7796800780d6344c4cc5054dac9f50d1c9b7a5c506c4777f7620c'
+sha256sums=('ea7ec9b6df70b8c528f4a2b6300e9913431c7223308fb08dfafa7508d75a0cb9'
         '4c484deafa62fa2ba636b8ce24cdbd18216883423bff59f410e1de8abe9c69df'
-        '98f92c2edbcf61d1bacef783ea8b08cce07051b0a4489ed3f4579296846f89f1'
-        'f315e48a9c586fb5e77921eda59c773ba8afbb1e4ac9fd422c66b5c482dca6d2'
-        'e0d1a306bf3be7802ef19c0033b278ae2ecf8fd4f271bad7d93209c9c6a0f019'
-        'b21ac5eb86519fbcbe0a74fc531cb707a878e988b6fdb298be6083760e04fb89'
-        'd9d70a607d877646b4e2087ddf4c3ad14d5bcb2b5973b33fed30ee8e6d69b40d'
-        '74cd12b54d47a2ce0e418d8d15cd0be1649bbec5951d9000b5275683f9b0623d'
         'a70d24036a7ae14f213147fe6727fee4320b2090bc59d8a4ffa609d8fdd14cef')
 symlinks=(/bin/less
   /bin/cpio
