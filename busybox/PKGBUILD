@@ -25,6 +25,7 @@ sha256sums=('ea7ec9b6df70b8c528f4a2b6300e9913431c7223308fb08dfafa7508d75a0cb9'
         'd51e911242addaf594bae8c98b61e7711032b66b43455c87656518cb66d05ee6'
         'bf0092798438c18fd3e7f6d9a8a281d6575cf4258d2457b6320d9c6bc8443eae')
 symlinks=(/bin/less
+  /usr/bin/less
   /bin/cpio
   /usr/bin/run-parts
   /usr/bin/crontab
