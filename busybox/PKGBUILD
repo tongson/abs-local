@@ -16,12 +16,14 @@ source=(${url}/downloads/${pkgname}-${pkgver}.tar.bz2
         config
         busybox-1.19.2-bb.patch
         runsvdir-start
-        script)
+        script
+        man_db.conf)
 sha256sums=('ea7ec9b6df70b8c528f4a2b6300e9913431c7223308fb08dfafa7508d75a0cb9'
         '0555a1941b8eb336c8738ef18a311c5fb55c5ce8b579948ba64a249f495896cc'
         '98f92c2edbcf61d1bacef783ea8b08cce07051b0a4489ed3f4579296846f89f1'
         'a70d24036a7ae14f213147fe6727fee4320b2090bc59d8a4ffa609d8fdd14cef'
-        'd51e911242addaf594bae8c98b61e7711032b66b43455c87656518cb66d05ee6')
+        'd51e911242addaf594bae8c98b61e7711032b66b43455c87656518cb66d05ee6'
+        'bf0092798438c18fd3e7f6d9a8a281d6575cf4258d2457b6320d9c6bc8443eae')
 symlinks=(/bin/less
   /bin/cpio
   /usr/bin/run-parts
@@ -112,6 +114,7 @@ package() {
   cd "${srcdir}"
   install -D -m0755 ${srcdir}/runsvdir-start ${pkgdir}/sbin/runsvdir-start
   install -D -m0755 ${srcdir}/script ${pkgdir}/usr/share/udhcpc/script
+  install -D -m0644 ${srcdir}/man_db.conf ${pkgdir}/etc/man_db.conf
 
   cd "${srcdir}/${pkgname}-${pkgver}"
   install -m0755 -d ${pkgdir}/bin/
