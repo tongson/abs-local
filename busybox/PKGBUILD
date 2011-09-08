@@ -6,8 +6,8 @@ arch=('i686' 'x86_64')
 url='http://busybox.net'
 license=('GPL')
 options=('emptydirs')
-provides=('less' 'wget' 'sed' 'diffutils' 'findutils' 'awk' 'bzip2' 'gzip' 'unzip' 'tar' 'which'
-          'run-parts' 'patch' 'vi' 'grep' 'procps' 'cpio' 'cron' 'eject' 'runit' 'psmisc' 'bridge-utils'
+provides=('less' 'wget' 'sed' 'diffutils' 'findutils' 'awk' 'gzip' 'unzip' 'tar' 'which'
+          'run-parts' 'patch' 'vi' 'procps' 'cpio' 'cron' 'eject' 'runit' 'psmisc' 'bridge-utils'
           'iputils' 'net-tools' 'inetutils' 'man-db' 'logger' 'ntp' 'dhcpcd')
 groups=('base')
 conflicts=('cron')
@@ -46,8 +46,6 @@ symlinks=(/bin/less
   /usr/bin/xargs
   /bin/awk
   /usr/bin/awk
-  /bin/bunzip2
-  /bin/bzip2
   /bin/gunzip
   /bin/uncompress
   /bin/gzip
@@ -56,7 +54,6 @@ symlinks=(/bin/less
   /usr/bin/which
   /usr/bin/patch
   /bin/vi
-  /bin/grep
   /bin/kill
   /bin/ps
   /sbin/sysctl
