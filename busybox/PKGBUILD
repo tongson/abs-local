@@ -8,7 +8,7 @@ license=('GPL')
 options=('emptydirs')
 provides=('wget' 'sed' 'diffutils' 'findutils' 'awk' 'gzip' 'unzip' 'tar' 'which'
           'run-parts' 'patch' 'vi' 'procps' 'cpio' 'cron' 'eject' 'runit' 'psmisc' 'bridge-utils'
-          'iputils' 'net-tools' 'inetutils' 'man-db' 'logger' 'ntp' 'dhcpcd' 'grep')
+          'iputils' 'net-tools' 'inetutils' 'man-db' 'logger' 'ntp' 'dhcpcd' 'grep' 'ifenslave')
 groups=('base')
 conflicts=('cron')
 install='busybox.install'
@@ -94,7 +94,8 @@ symlinks=(/bin/cpio
   /sbin/udhcpc
   /bin/grep
   /bin/egrep
-  /bin/fgrep)
+  /bin/fgrep
+  /sbin/ifenslave)
 
 build() {
   cd "${srcdir}/${pkgname}-${pkgver}"
