@@ -131,5 +131,6 @@ package() {
   for i in $(seq 1 8); do
     install -m0755 -d ${pkgdir}/usr/share/man/man${i}
   done
+  install -D -m644 LICENSE ${pkgdir}/usr/share/licenses/${pkgname}/LICENSE
 }
 
