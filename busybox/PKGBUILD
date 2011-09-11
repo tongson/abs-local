@@ -19,7 +19,7 @@ source=(${url}/downloads/${pkgname}-${pkgver}.tar.bz2
         script
         man_db.conf)
 sha256sums=('ea7ec9b6df70b8c528f4a2b6300e9913431c7223308fb08dfafa7508d75a0cb9'
-        'e42a38a95eef0ee1588873ad8b064842738a63be378d99ffc90c7c78358f17dd'
+        '1e8272e2e544ed4fda9d310bb61172880dd68f3e00af773bba5d35470a57f545'
         '98f92c2edbcf61d1bacef783ea8b08cce07051b0a4489ed3f4579296846f89f1'
         'a70d24036a7ae14f213147fe6727fee4320b2090bc59d8a4ffa609d8fdd14cef'
         'd51e911242addaf594bae8c98b61e7711032b66b43455c87656518cb66d05ee6'
