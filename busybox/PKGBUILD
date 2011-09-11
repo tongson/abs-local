@@ -128,5 +128,8 @@ package() {
 
   install -o 0 -g 16 -m0750 -d ${pkgdir}/var/spool/cron
   install -o 0 -g 409 -m1730 -d ${pkgdir}/var/spool/cron/crontabs
+  for i in $(seq 1 8); do
+    install -m0755 -d ${pkgdir}/usr/share/man/man${i}
+  done
 }
 
