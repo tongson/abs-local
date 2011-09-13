@@ -3,7 +3,7 @@ pkgver=008
 pkgrel=66
 pkgdesc='Userspace tools for the kernel cpufreq subsystem'
 arch=('i686' 'x86_64')
-url="http://www.kernel.org/pub/linux/utils/kernel/cpufreq/cpufrequtils.html"
+url='http://www.kernel.org/pub/linux/utils/kernel/cpufreq/cpufrequtils.html'
 license=('GPL')
 options=(!libtool)
 source=(http://www.kernel.org/pub/linux/utils/kernel/cpufreq/${pkgname}-${pkgver}.tar.bz2
@@ -25,7 +25,7 @@ sha256sums=('1b9daa591d977679fb09ffb9b4d58afa94b9387f3c0be92ec077080e328130f1
 
 build()
 {
-  cd "${srcdir}/${pkgname}-${pkgver}"
+  cd ${srcdir}/${pkgname}-${pkgver}/
 
   #from Gentoo
   patch -Np0 -i ${srcdir}/${pkgname}-007-build.patch
@@ -38,5 +38,5 @@ build()
 
   export V=true NLS=false
   make -j1 || return 1
-  make INSTALL="/bin/install -c" mandir=/usr/share/man DESTDIR="${pkgdir}" install || return 1
+  make INSTALL="/bin/install -c" mandir=/usr/share/man DESTDIR=${pkgdir} install || return 1
 }
