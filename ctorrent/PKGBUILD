@@ -25,5 +25,6 @@ build() {
 }
 
 package() {
+  cd "${srcdir}/${pkgname}-dnh${pkgver}/"
   make DESTDIR="${pkgdir}" install
 }
