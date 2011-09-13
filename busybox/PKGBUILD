@@ -98,8 +98,8 @@ symlinks=(/bin/cpio
   /sbin/ifenslave)
 
 build() {
-  cd "${srcdir}/${pkgname}-${pkgver}"
-  cp "${srcdir}/config" .config
+  cd ${srcdir}/${pkgname}-${pkgver}/
+  cp ${srcdir}/config .config
   # from Gentoo
   patch -Np1 -i ${srcdir}/${pkgname}-${pkgver}-bb.patch
   sed -i -r \
@@ -111,12 +111,12 @@ build() {
 }
 
 package() {
-  cd "${srcdir}"
+  cd ${srcdir}
   install -D -m0755 ${srcdir}/runsvdir-start ${pkgdir}/sbin/runsvdir-start
   install -D -m0755 ${srcdir}/script ${pkgdir}/usr/share/udhcpc/script
   install -D -m0644 ${srcdir}/man_db.conf ${pkgdir}/etc/man_db.conf
 
-  cd "${srcdir}/${pkgname}-${pkgver}"
+  cd ${srcdir}/${pkgname}-${pkgver}/
   install -m0755 -d ${pkgdir}/bin/
   install -m0755 busybox ${pkgdir}/bin
 
