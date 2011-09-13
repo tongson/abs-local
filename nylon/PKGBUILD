@@ -18,10 +18,11 @@ build() {
 }
 
 package() {
-  cd ${srcdir}/${pkgname}-${pkgver}
-  make bindir=${pkgdir}/usr/bin mandir=${pkgdir}/usr/share/man install
   cd ${srcdir}
   install -D -m644 nylon.conf ${pkgdir}/etc/nylon.conf
+
+  cd ${srcdir}/${pkgname}-${pkgver}
+  make bindir=${pkgdir}/usr/bin mandir=${pkgdir}/usr/share/man install
   install -D -m644 LICENSE ${pkgdir}/usr/share/licenses/${pkgname}/LICENSE
 }
 
