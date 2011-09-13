@@ -1,9 +1,9 @@
 pkgname=ctorrent
 pkgver=3.3.2
 pkgrel=66
-pkgdesc="A high-performance BitTorrent client with minimal system resources"
+pkgdesc='A high-performance BitTorrent client with minimal system resources'
 arch=('i686' 'x86_64')
-url=("http://www.rahul.net/dholmes/ctorrent/")
+url='http://www.rahul.net/dholmes/ctorrent/'
 license=('GPL-2')
 depends=('openssl')
 source=(http://ovh.dl.sourceforge.net/sourceforge/dtorrent/${pkgname}-dnh${pkgver}.tar.gz
@@ -14,7 +14,7 @@ sha256sums=('c87366c91475931f75b924119580abd06a7b3cb3f00fef47346552cab1e24863'
             'd24d04760a3480e921c54ea1af39e7bb094a8b774ee09bb8849f9c1f76731193')
 
 build() {
-  cd "${srcdir}/${pkgname}-dnh${pkgver}/"
+  cd ${srcdir}/${pkgname}-dnh${pkgver}/
 
   # patches from Sourceforge
   patch -Np0 -i ${srcdir}/2782875.diff
@@ -25,6 +25,6 @@ build() {
 }
 
 package() {
-  cd "${srcdir}/${pkgname}-dnh${pkgver}/"
-  make DESTDIR="${pkgdir}" install
+  cd ${srcdir}/${pkgname}-dnh${pkgver}/
+  make DESTDIR=${pkgdir} install
 }
