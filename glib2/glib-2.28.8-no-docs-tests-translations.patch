@@ -1,0 +1,99 @@
+--- glib-2.28.8/gio/Makefile.am	2011-06-05 23:18:49.000000000 +0000
++++ glib-2.28.8.patched/gio/Makefile.am	2011-09-21 23:16:26.990306087 +0000
+@@ -279,8 +279,6 @@ giowin32include_HEADERS = \
+ 
+ endif
+ 
+-SUBDIRS += tests
+-
+ libgio_2_0_la_SOURCES =		\
+ 	gappinfo.c 		\
+ 	gasynchelper.c 		\
+--- glib-2.28.8/gio/Makefile.in	2011-06-05 23:24:50.000000000 +0000
++++ glib-2.28.8.patched/gio/Makefile.in	2011-09-21 23:14:55.030305615 +0000
+@@ -347,7 +347,7 @@ ETAGS = etags
+ CTAGS = ctags
+ am__tty_colors = \
+ red=; grn=; lgn=; blu=; std=
+-DIST_SUBDIRS = libasyncns xdgmime inotify fen win32 . fam tests
++DIST_SUBDIRS = libasyncns xdgmime inotify fen . fam 
+ DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
+ am__relativize = \
+   dir0=`pwd`; \
+@@ -619,7 +619,7 @@ EXTRA_DIST = strinfo.c gio-marshal.list
+ TEST_PROGS = 
+ NULL = 
+ SUBDIRS = $(am__append_1) $(am__append_3) $(am__append_7) \
+-	$(am__append_10) . $(am__append_13) tests
++	$(am__append_10) . $(am__append_13) 
+ @MS_LIB_AVAILABLE_TRUE@@OS_WIN32_AND_DLL_COMPILATION_TRUE@noinst_DATA = gio-2.0.lib
+ @MS_LIB_AVAILABLE_TRUE@@OS_WIN32_AND_DLL_COMPILATION_TRUE@install_ms_lib_cmd = $(INSTALL) gio-2.0.lib $(DESTDIR)$(libdir)
+ @MS_LIB_AVAILABLE_TRUE@@OS_WIN32_AND_DLL_COMPILATION_TRUE@uninstall_ms_lib_cmd = -rm $(DESTDIR)$(libdir)/gio-2.0.lib
+--- glib-2.28.8/glib/Makefile.am	2011-06-05 23:18:49.000000000 +0000
++++ glib-2.28.8.patched/glib/Makefile.am	2011-09-21 23:17:09.100306308 +0000
+@@ -48,7 +48,7 @@ else
+ gatomic_c = gatomic.c
+ endif
+ 
+-SUBDIRS = libcharset $(PRINTF_SUBDIR) $(MAYBE_PCRE) update-pcre . tests
++SUBDIRS = libcharset $(PRINTF_SUBDIR) $(MAYBE_PCRE) update-pcre .
+ 
+ DIST_SUBDIRS = libcharset gnulib pcre update-pcre tests
+ 
+--- glib-2.28.8/glib/Makefile.in	2011-06-05 23:24:51.000000000 +0000
++++ glib-2.28.8.patched/glib/Makefile.in	2011-09-21 23:15:11.250305697 +0000
+@@ -547,8 +547,8 @@ nodist_configexecinclude_HEADERS = glibc
+ @ENABLE_REGEX_TRUE@gregex_h = gregex.h
+ @HAVE_GCC_BUILTINS_FOR_ATOMIC_OPERATIONS_FALSE@gatomic_c = gatomic.c
+ @HAVE_GCC_BUILTINS_FOR_ATOMIC_OPERATIONS_TRUE@gatomic_c = gatomic-gcc.c
+-SUBDIRS = libcharset $(PRINTF_SUBDIR) $(MAYBE_PCRE) update-pcre . tests
+-DIST_SUBDIRS = libcharset gnulib pcre update-pcre tests
++SUBDIRS = libcharset $(PRINTF_SUBDIR) $(MAYBE_PCRE) update-pcre .
++DIST_SUBDIRS = libcharset gnulib pcre update-pcre
+ AM_CPPFLAGS = \
+ 	$(glib_INCLUDES) 		\
+ 	$(pcre_inc) 			\
+--- glib-2.28.8/gobject/Makefile.am	2011-06-05 23:18:50.000000000 +0000
++++ glib-2.28.8.patched/gobject/Makefile.am	2011-09-21 23:17:38.080306461 +0000
+@@ -4,7 +4,7 @@
+ ## Process this file with automake to produce Makefile.in
+ include $(top_srcdir)/Makefile.decl
+ 
+-SUBDIRS = . tests
++SUBDIRS = .
+ 
+ CLEANFILES=
+ 
+--- glib-2.28.8/gobject/Makefile.in	2011-06-05 23:24:52.000000000 +0000
++++ glib-2.28.8.patched/gobject/Makefile.in	2011-09-21 23:15:39.100305843 +0000
+@@ -440,7 +440,7 @@ TEST_PROGS =
+ # GObject - GLib Type, Object, Parameter and Signal Library
+ # Copyright (C) 1997,98,99,2000 Tim Janik and Red Hat, Inc.
+ #
+-SUBDIRS = . tests
++SUBDIRS = .
+ CLEANFILES = $(am__append_2) $(gen_sources)
+ @HAVE_THREADS_TRUE@THREAD_FLAGS = -DG_THREADS_MANDATORY
+ AM_CPPFLAGS = \
+--- glib-2.28.8/Makefile.am	2010-09-27 18:48:33.000000000 +0000
++++ glib-2.28.8.patched/Makefile.am	2011-09-21 23:16:46.910306195 +0000
+@@ -3,7 +3,7 @@ include $(top_srcdir)/Makefile.decl
+ 
+ ACLOCAL_AMFLAGS = -I m4macros ${ACLOCAL_FLAGS}
+ 
+-SUBDIRS = . m4macros glib gmodule gthread gobject gio tests po docs
++SUBDIRS = . m4macros glib gmodule gthread gobject gio
+ DIST_SUBDIRS = $(SUBDIRS) build
+ 
+ bin_SCRIPTS = glib-gettextize
+--- glib-2.28.8/Makefile.in	2011-06-05 23:24:53.000000000 +0000
++++ glib-2.28.8.patched/Makefile.in	2011-09-21 23:16:08.960305995 +0000
+@@ -422,7 +422,7 @@ EXTRA_DIST = ChangeLog.pre-2-20 ChangeLo
+ 	gio-2.0-uninstalled.pc.in gio-unix-2.0-uninstalled.pc.in
+ TEST_PROGS = 
+ ACLOCAL_AMFLAGS = -I m4macros ${ACLOCAL_FLAGS}
+-SUBDIRS = . m4macros glib gmodule gthread gobject gio tests po docs
++SUBDIRS = . m4macros glib gmodule gthread gobject gio
+ DIST_SUBDIRS = $(SUBDIRS) build
+ bin_SCRIPTS = glib-gettextize
+ AM_CPPFLAGS = \
