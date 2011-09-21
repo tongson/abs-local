@@ -6,7 +6,6 @@ arch=('i686' 'x86_64')
 url="http://openbox.org/wiki/ObConf:About"
 license=('GPL')
 depends=('openbox' 'gtk2' 'libglade')
-install=${pkgname}.install
 source=("ftp://ftp.archlinux.org/other/community/${pkgname}/${pkgname}-${pkgver}.tar.xz"
         'obconf-2.0.3_p20110314-config-path.patch')
 sha256sums=('ad2e053168170c1cddfccede92de20012a5e615c4b630775e6588efe5bda3ccc'
